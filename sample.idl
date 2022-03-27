@@ -1,0 +1,43 @@
+/**
+ * comment : multi line
+ */
+// comment simple line
+/** comment simple line */
+
+// TODO #include "other.idl"
+
+module Mod1 {
+
+	typedef char T_Char;
+	typedef T_Char T_Char2;
+	typedef int32_t T_UINT32;
+	typedef int64_t T_UINT64;
+	typedef sequence<T_Char> T_Char_v;
+	typedef sequence<T_Char, 50> T_SmallString;
+	typedef sequence<T_Char, 500> T_LongString;
+	typedef sequence<T_UINT32, 500> T_LongInt;
+
+	struct int_t /* int_t */
+	{
+		@key int a; /** handle OMG IDL FORMAT */
+		@key int b;
+		int c;
+	}; /* int_t */
+
+	struct foo_t
+	{
+		::Mod1::T_Char2 a;
+		::Mod1::T_Char b;
+		::Mod1::T_Char_v c;
+		::Mod1::T_UINT32 d;
+		uint64_t e;
+		string str;
+		::Mod1::T_LongInt f;
+	};
+#pragma keylist foo_t a.a /** todo: Handle opensplice idl format */
+
+	struct C_test_topic
+	{
+		::Mod1::foo_t a;
+	};
+};
